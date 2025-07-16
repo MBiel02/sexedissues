@@ -1,0 +1,302 @@
+.libre-baskerville-regular-italic {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.acumin-pro {
+font-family: "acumin-pro", sans-serif;
+font-weight: 400;
+font-style: normal;
+}
+
+/* Base Styles */
+:root {
+  --margin: 1rem;
+}
+
+.dynamic-color {
+  color: var(--accent-color);
+}
+
+body {
+  margin: 0;
+  line-height: 1.4;
+  font-family: "acumin-pro", sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.page-wrapper {
+  background-color: rgb(255, 255, 255);
+}
+
+h1 {
+  font-size: 1rem;
+  font-weight: 400;
+  border: 1px solid black;
+  background-color: white;
+  padding: 2px 12px;
+  border-radius: 100px;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: calc(2 * var(--margin));
+}
+
+h3 {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+i {
+  font-family: "Libre Baskerville", serif;
+  letter-spacing: -40;
+}
+
+#italic-color {
+  color: var(--accent-color);
+}
+
+a {
+  color: black;
+}
+
+/* Desktop View */
+.desktop-view {
+  display: flex;
+  min-height: 100vh;
+}
+
+.left-side, .right-side {
+  padding: var(--margin);
+}
+
+.left-side {
+  width: 60vw;
+  height: 100vh; /* Full viewport height */
+  padding: calc(2 * var(--margin));
+  padding-top: 80px; /* Space for header */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  align-items: center;
+  padding-bottom: var(--margin);
+}
+
+.image-scroll {
+  /* Modify this */
+  display: flex;
+  flex-direction: column;
+  gap: calc(3 * var(--margin));
+  width: 100%;
+  /* Push content to bottom */
+  margin-top: 50px;
+  margin-bottom: 78%;
+  transform: scaleY(-1); /* Flip vertically */
+  pointer-events: auto; /* Ensure scroll events work */
+}
+
+
+.image-scroll img {
+  max-width: 100%;
+  height: auto;
+  transform: scaleY(-1); /* Flip each image back */
+}
+
+.image-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.left-side::-webkit-scrollbar {
+  display: none;
+}
+
+.right-side {
+  width: 40vw;
+  padding-top: calc(4 * var(--margin) + 30px); /* Space for fixed title */
+  display: flex;
+  justify-content: center;
+  padding-right: 0;
+  overflow-y: auto;
+}
+
+.colophon-img img {
+  width: 100px;
+}
+
+.content{
+  position: fixed;
+  padding: calc(3 * var(--margin));
+}
+
+header {
+  z-index: 99;
+  padding-top: 1rem;
+  width: 100vw;
+  height: 80px;
+  position: fixed;
+  display: flex;
+  background-color: var(--accent-color);
+  mix-blend-mode: multiply;
+}
+
+.dispenser-opening {
+  width: 60vw;
+  border: 1px solid black;
+  border-bottom: none;
+  border-top-left-radius: 20px;  /* Top-left corner */
+  border-top-right-radius: 20px;
+  margin-top: 3em ;
+  background-color: rgb(255, 255, 255);
+  background-blend-mode: screen;
+}
+
+.dispenser-line {
+  width: 40vw;
+  border-bottom: 1px solid black;
+}
+
+.fixed-title {
+  font-family: "acumin-pro", sans-serif;
+  position: fixed;
+  top: var(--margin);
+  z-index: 100;
+}
+
+/* Book container */
+.book-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 2;
+}
+
+.book-container:hover .close-btn,
+.book-container:active .close-btn {
+  opacity: 1;
+}
+
+/* Hide close button on covers */
+.book-container[data-current-page="-1"] .close-btn {
+  display: none;
+}
+
+/* Mobile touch devices */
+@media (hover: none) {
+  .close-btn {
+    opacity: 1 !important;
+  }
+}
+
+/* Mobile View */
+.mobile-view {
+  display: none;
+}
+
+.mobile-buttons {
+  font-family: "acumin-pro", sans-serif;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding-top: var(--margin);
+  color: black;
+}
+
+.mobile-tab {
+  font-family: "acumin-pro", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+  padding: 5px 12px;
+  border-radius: 100px;
+  margin: 0;
+}
+
+.mobile-tab.active {
+  font-family: "acumin-pro", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid black;
+  background-color: var(--accent-color);
+  color: black;
+  padding: 5px 12px;
+  border-radius: 100px;
+  margin: 0;
+}
+
+.mobile-content {
+  display: none;
+  padding: var(--margin);
+  padding-top: calc(60px + var(--margin)); /* Space for buttons */
+  overflow-y: auto;
+}
+
+.mobile-content.active {
+  display: block;
+  padding: var(--margin);
+  padding-top: calc(60px + var(--margin)); /* Space for buttons */
+  overflow-y: auto;
+}
+
+.mobile-image-scroll {
+  /* Modify this */
+  display: flex;
+  flex-direction: column;
+  gap: var(--margin);
+  width: 100%;
+}
+
+.book-image {
+  max-width: 100%;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 779px) {
+  .desktop-view {
+    display: none;
+  }
+  
+  .mobile-view {
+    display: block;
+  }
+  
+  .mobile-content {
+    min-height: calc(100vh - 60px);
+  }
+}
+
+@media (hover: none) {
+  .close-btn {
+    opacity: 1 !important;
+  }
+}
