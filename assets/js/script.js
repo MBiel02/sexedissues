@@ -152,3 +152,9 @@ function resetToCover(container) {
   const color = vibrantColors[Math.floor(Math.random() * vibrantColors.length)];
   document.documentElement.style.setProperty('--accent-color', color);
 })();
+
+window.addEventListener('resize', function() {
+  console.log('Window width:', window.innerWidth);
+  console.log('Mobile view display:', 
+    getComputedStyle(document.querySelector('.mobile-view')).display);
+});
