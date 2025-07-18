@@ -213,7 +213,7 @@ header {
 
 /* Mobile View */
 .mobile-view {
-  display: block;
+  display: none;
 }
 
 .mobile-buttons {
@@ -287,7 +287,7 @@ header {
   }
   
   .mobile-view {
-    display: block;
+    display: none;
   }
   
   .mobile-content {
