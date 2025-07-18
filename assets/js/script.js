@@ -37,8 +37,6 @@ const books = [
   }
 ];
 
-let mobileInitialized = false;
-
 // DOM ready handler
 function docReady(fn) {
   if (document.readyState === "complete" || document.readyState === "interactive") {
@@ -49,8 +47,8 @@ function docReady(fn) {
 }
 
 docReady(function () {
-  // Init desktop books
   initBooks('.image-scroll');
+  initBooks('.mobile-image-scroll');
 
   const tabs = document.querySelectorAll('.mobile-tab');
   tabs.forEach(tab => {
@@ -62,25 +60,12 @@ docReady(function () {
       const contentDiv = document.getElementById(tabId);
       contentDiv.classList.add('active');
       window.scrollTo(0, 0);
-
-      // Only init mobile books once
-      if (tabId === "content" && !mobileInitialized) {
-        initBooks('.mobile-image-scroll');
-        mobileInitialized = true;
-      }
     });
   });
 
-  // Scroll desktop left side to bottom
   const leftSide = document.querySelector('.left-side');
   if (leftSide) {
     leftSide.scrollTop = leftSide.scrollHeight;
-  }
-
-  // Fallback: auto-init mobile if it's already visible and active
-  if (window.innerWidth <= 779 && document.getElementById("content").classList.contains("active")) {
-    initBooks('.mobile-image-scroll');
-    mobileInitialized = true;
   }
 });
 
