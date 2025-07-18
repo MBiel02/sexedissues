@@ -213,7 +213,11 @@ header {
 
 /* Mobile View */
 .mobile-view {
-  display: none;
+  .mobile-view {
+  visibility: hidden;
+  position: absolute;
+  z-index: -1;
+}
 }
 
 .mobile-buttons {
